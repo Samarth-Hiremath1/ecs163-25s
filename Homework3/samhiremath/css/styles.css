@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+#main-title {
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+    font-size: 24px;
+}
+
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: calc(100vh - 120px);
+}
+
+.chart-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#scatter {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+#overview {
+    grid-column: 2;
+    grid-row: 1; 
+}
+
+#parallel {
+    grid-column: 2;
+    grid-row: 2; 
+}
+
+svg {
+    width: 100%;
+}
+
+.bar {
+    transition: opacity 0.3s ease;
+}
+
+.bar:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.bar.selected {
+    stroke: #ff6b6b;
+    stroke-width: 3px;
+}
+
+.brush .extent {
+    fill-opacity: 0.125;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.reset-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 100;
+}
+
+.reset-button:hover {
+    background: #0056b3;
+}
+
+.axis-label {
+    font-size: 12px;
+    fill: #333;
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-anchor: middle;
+    fill: #333;
+}
+
+.data-path {
+    transition: opacity 0.5s ease, stroke-width 0.5s ease;
+}
+
+circle {
+    cursor: pointer;
+    transition: r 0.2s ease, opacity 0.2s ease;
+}
+
+.legend text {
+    font-size: 12px;
+    fill: #333;
+}
+
+.axis {
+    font-size: 12px;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #333;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    fill: #333;
+}
+
+@media (max-width: 1200px) {
+    #dashboard {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    
+    #scatter {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    #overview {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    #parallel {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    #dashboard {
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .chart-container {
+        padding: 10px;
+    }
+    
+    #main-title {
+        font-size: 20px;
+        margin: 10px 0;
+    }
+}

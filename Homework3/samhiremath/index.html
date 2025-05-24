@@ -1,0 +1,28 @@
+<!doctype html>
+<html style="width:100%;height:100%;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Job Salaries Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="width:100%;height:100%;margin:0;">
+    <h1 id="main-title">Interactive Data Science Job Salaries Dashboard</h1>
+    
+    <div id="dashboard">
+        <!-- Context view 1: overview bar chart for filtering -->
+        <div id="overview" class="chart-container">
+            <button class="reset-button" onclick="resetFilters()">Reset Filters</button>
+        </div>
+        <!-- Primary main focus view: scatter plot with detailed interactions among the different variables -->
+        <div id="scatter" class="chart-container">
+            <div class="tooltip"></div>
+        </div>
+        <!-- Context view 2: parallel coordinates vis that allwos for exploration between variables -->
+        <div id="parallel" class="chart-container"></div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
